@@ -6,21 +6,22 @@ actualsurvey <- read_csv("/Users/macuser/Documents/Dissertation/Survey Data/surv
 
 # Clean column names by removing JSON-like metadata
 actualsurvey <- actualsurvey[3:nrow(actualsurvey), ]
-#delete columns that are unneccesary
+
+# Delete columns that are unneccesary
 actualsurvey <- subset(actualsurvey, select = -c(
   Status, StartDate, EndDate, Progress, Q10, Q11, Q19_1_TEXT, `Duration (in seconds)`, Finished, RecordedDate, 
   RecipientLastName, RecipientEmail, ExternalReference, LocationLatitude, LocationLongitude, 
   DistributionChannel, UserLanguage, Q_RecaptchaScore, RecipientFirstName, `_Id`, `_Name`, `_Size`, `_Type` 
 ))
-#see if the columns have been deleted 
+# See if the columns have been deleted 
 head(actualsurvey)
 
-#delete question columns that are unnecessary - name ,, signature and testing the prototype
+# Delete question columns that are unnecessary - name ,, signature and testing the prototype
 actualsurvey <- subset(actualsurvey, select = -c(
   Q10,Q11,Q19,Q19_1_TEXT
 ))
 
-#see if the columns have been deleted 
+# See if the columns have been deleted 
 colnames(actualsurvey)
 library(readr)
 library(dplyr)
