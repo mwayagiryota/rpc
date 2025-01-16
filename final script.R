@@ -120,12 +120,12 @@ print("Structure of cleaned data:")
 str(clean_survey)
 
 # Show summary statistics for ranking questions
-print("\nMean rankings for engagement features:")
+print("Mean rankings for engagement features:")
 clean_survey %>%
   select(starts_with("rank_viewing"):rank_comment_developments) %>%
   summarise(across(everything(), mean, na.rm = TRUE))
 
-print("\nMean rankings for content types:")
+print("Mean rankings for content types:")
 clean_survey %>%
   select(rank_project_descriptions:rank_council_meetings) %>%
   summarise(across(everything(), mean, na.rm = TRUE))
